@@ -15,21 +15,21 @@ This is a web application designed to showcase tourism destinations, news, and b
 
 ---
 
-## ✨ Fitur Utama (Key Features)
+## Key Features
 
-### 🎨 Frontend (Sisi Pengguna)
-- Menggunakan Tailwind CSS v4 & animasi elegan dari Framer Motion dengan efek *Glassmorphism*.
-- Terintegrasi penuh dengan dukungan deteksi otomatis sistem menggunakan `next-themes`.
-- Rute URL menggunakan pendekatan *slug* (`/destinasi/[nama-destinasi]`).
-- Jelajahi destinasi wisata berdasarkan lokasi, kategori, maupun pengurutan performa/rating.
-- Banner *slider* utama yang secara dinamis menarik dan menampilkan data dari destinasi-destinasi unggulan.
-- Fitur kirim pesan yang memungkinkan pengunjung berinteraksi dan mendapatkan balasan dari pengelola secara semi real-time (*polling* token sesi).
+###  Frontend (User Side)
+- Uses Tailwind CSS v4 and elegant animations from Framer Motion with *Glassmorphism* effects.
+- Fully integrated with system auto-detection support using `next-themes`.
+- URL routing uses the *slug* approach (`/destination/[destination-name]`).
+- Explore tourist destinations by location, category, or sorted by performance/rating.
+- Main slider banner that dynamically retracts and displays data from top destinations.
+- Messaging feature that allows visitors to interact and receive responses from administrators in semi-real-time (*polling* session tokens).
 
-### ⚙️ Backend (Sisi Admin)
-- **Dasbor Manajemen Modern:** Dibangun cepat dan tangguh menggunakan Laravel Filament v3.
-- **Pembuatan Carousel Cerdas (Auto-fill):** Tambahkan banner baru hanya dengan mengeklik nama destinasi; foto, judul, dan deskripsi akan terisi otomatis.
-- **Kontrol Destinasi Mahir:** Dilengkapi dengan *Rich Text Editor* terintegrasi dan *Repeater builder* untuk menyusun *Itinerary* (Jadwal Perjalanan).
-- **Pusat Pesan Inbox:** Admin dapat memantau pesan masuk dari widget chat, membaca riwayat, dan membalasnya langsung dari satu laman terpadu.
+### Backend (Admin Side)
+- Modern Management Dashboard: Built fast and robust using Laravel Filament v3.
+- Smart Carousel Creation (Auto-fill): Add a new banner simply by clicking on the destination name; the photo, title, and description will be filled in automatically.
+- **Advanced Destination Control:** Equipped with an integrated *Rich Text Editor* and *Repeater builder* to create *Itineraries*.
+- **Inbox Message Center:** Admins can monitor incoming messages from the chat widget, read history, and reply directly.g dari satu laman terpadu.
 - **Manajemen C.R.U.D Publikasi Berita:** Kelola secara mandiri artikel terkini seputar pariwisata daerah.
 
 ---
