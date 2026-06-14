@@ -11,9 +11,11 @@ interface FooterSettings {
     [key: string]: string;
 }
 
+const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
 async function getSocialMedia() {
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/social-media", { next: { revalidate: 30 } });
+        const res = await fetch(`${API}/api/social-media`, { next: { revalidate: 30 } });
         if (!res.ok) return [];
         return res.json() as Promise<SocialMediaItem[]>;
     } catch (e) {
@@ -23,7 +25,7 @@ async function getSocialMedia() {
 
 async function getFooterSettings(): Promise<FooterSettings> {
     try {
-        const res = await fetch("http://127.0.0.1:8000/api/footer-settings", { next: { revalidate: 30 } });
+        const res = await fetch(`${API}/api/footer-settings`, { next: { revalidate: 30 } });
         if (!res.ok) return {};
         return res.json() as Promise<FooterSettings>;
     } catch (e) {

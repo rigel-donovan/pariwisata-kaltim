@@ -12,10 +12,12 @@ interface NewsItem {
     category: string;
 }
 
+const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
 const getImageUrl = (imagePath: string) => {
     if (!imagePath) return '';
     if (imagePath.startsWith('http')) return imagePath;
-    return `http://127.0.0.1:8000/storage/${imagePath}`;
+    return `${API}/storage/${imagePath}`;
 };
 
 const formatDate = (dateString: string) => {
@@ -35,7 +37,7 @@ export default function LatestNews({ items }: { items: any }) {
     };
 
     const arrayItems = getArrayItems();
-    const displayItems = arrayItems.length > 0 ? arrayItems : defaultNewsItems;
+    const displayItems = arrayItems.length > 0 ? arrayItems : [];
 
     return (
         <section id="berita" className="py-24 bg-white dark:bg-slate-950">

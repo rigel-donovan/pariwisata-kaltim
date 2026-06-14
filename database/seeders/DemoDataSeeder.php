@@ -33,6 +33,7 @@ class DemoDataSeeder extends Seeder
         // Destinations
         Destination::create([
             'name' => 'Pulau Maratua',
+            'slug' => 'pulau-maratua',
             'location' => 'Kepulauan Derawan',
             'category' => 'Pulau',
             'short_description' => 'Maladewa-nya Indonesia dengan resort mewah di atas air dan spot diving kelas dunia.',
@@ -44,6 +45,7 @@ class DemoDataSeeder extends Seeder
 
         Destination::create([
             'name' => 'Bukit Bangkirai',
+            'slug' => 'bukit-bangkirai',
             'location' => 'Samboja',
             'category' => 'Hutan',
             'short_description' => 'Sensasi berjalan di jembatan tajuk pohon (Canopy Bridge) di tengah hutan hujan tropis.',

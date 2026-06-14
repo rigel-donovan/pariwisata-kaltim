@@ -8,9 +8,7 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 async function getDestination(slug: string) {
     try {
-        const res = await fetch(`${API}/api/destinations/${slug}`, {
-            cache: 'no-store',
-        });
+        const res = await fetch(`${API}/api/destinations/${slug}`);
         if (!res.ok) return null;
         return res.json();
     } catch (e) {
@@ -20,13 +18,25 @@ async function getDestination(slug: string) {
 
 async function getRelatedDestinations(currentSlug: string) {
     try {
-        const res = await fetch(`${API}/api/destinations`, {
-            next: { revalidate: 60 },
-        });
+        const res = await fetch(`${API}/api/destinations`);
         if (!res.ok) return [];
         const data = await res.json();
         return data.filter((d: any) => d.slug?.toString() !== currentSlug).slice(0, 3);
     } catch {
+        return [];
+    }
+}
+
+export async function generateStaticParams() {
+    try {
+        const res = await fetch(`${API}/api/destinations`);
+        if (!res.ok) return [];
+        const destinations = await res.json();
+        const items = destinations.data || destinations || [];
+        return items.map((d: any) => ({
+            slug: d.slug?.toString() || "",
+        }));
+    } catch (e) {
         return [];
     }
 }

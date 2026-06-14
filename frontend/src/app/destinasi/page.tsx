@@ -4,9 +4,7 @@ import Footer from "@/components/Footer";
 
 async function getDestinations() {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/api/destinations`, {
-            next: { revalidate: 60 }
-        });
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/api/destinations`);
         if (!res.ok) {
             throw new Error('Failed to fetch destinations');
         }

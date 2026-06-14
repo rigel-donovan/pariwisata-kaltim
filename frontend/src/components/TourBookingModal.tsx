@@ -38,8 +38,10 @@ export default function TourBookingModal({ isOpen, onClose }: TourBookingModalPr
         setIsSubmitting(true);
         setStatus("idle");
 
+const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
         try {
-            const res = await fetch("http://127.0.0.1:8000/api/tour-bookings", {
+            const res = await fetch(`${API}/api/tour-bookings`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

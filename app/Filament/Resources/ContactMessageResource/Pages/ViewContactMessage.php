@@ -20,7 +20,6 @@ class ViewContactMessage extends ViewRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
-        // Mark as read when viewed
         if (!$data['is_read']) {
             $this->record->update(['is_read' => true]);
             $data['is_read'] = true;

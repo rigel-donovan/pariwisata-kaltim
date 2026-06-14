@@ -12,7 +12,7 @@ const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 async function getAllNews() {
     try {
-        const res = await fetch(`${API}/api/news`, { next: { revalidate: 30 } });
+        const res = await fetch(`${API}/api/news`);
         if (!res.ok) return [];
         const data = await res.json();
         if (Array.isArray(data)) return data;

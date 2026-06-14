@@ -4,7 +4,8 @@
     "scripts": {
         "dev": "npm run dev --prefix frontend",
         "backend-dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build:prod": "node scripts/build-deployment.js"
     },
     "devDependencies": {
         "@vitejs/plugin-react": "^4.4.1",

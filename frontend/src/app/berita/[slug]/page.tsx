@@ -53,9 +53,7 @@ const estimateReadTime = (content: string) => {
 
 async function getNewsDetail(slug: string): Promise<NewsDetail | null> {
     try {
-        const res = await fetch(`${API}/api/news/${slug}`, {
-            next: { revalidate: 60 },
-        });
+        const res = await fetch(`${API}/api/news/${slug}`);
         if (!res.ok) return null;
         return res.json();
     } catch {
@@ -65,10 +63,24 @@ async function getNewsDetail(slug: string): Promise<NewsDetail | null> {
 
 async function getAllNews(): Promise<SidebarNews[]> {
     try {
-        const res = await fetch(`${API}/api/news`, { next: { revalidate: 60 } });
+        const res = await fetch(`${API}/api/news`);
         if (!res.ok) return [];
         return res.json();
     } catch {
+        return [];
+    }
+}
+
+export async function generateStaticParams() {
+    try {
+        const res = await fetch(`${API}/api/news`);
+        if (!res.ok) return [];
+        const news = await res.json();
+        const items = news.data || news || [];
+        return items.map((n: any) => ({
+            slug: n.slug?.toString() || "",
+        }));
+    } catch (e) {
         return [];
     }
 }

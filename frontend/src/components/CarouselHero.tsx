@@ -28,32 +28,32 @@ const getImageUrl = (imagePath: string) => {
     return `${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/storage/${imagePath}`;
 };
 
-// const defaultSlides: CarouselItem[] = [
-//     {
-//         id: 1,
-//         title: "Pesona Kepulauan Derawan",
-//         subtitle: "Surga Tersembunyi di Timur Borneo",
-//         description: "Nikmati keindahan koral, berenang bersama penyu, dan menyelam di laut jernih. Destinasi impian bagi setiap pecinta laut.",
-//         image: "https://images.unsplash.com/photo-1544480843-0e42a96b7978?q=80&w=1920&auto=format&fit=crop",
-//         location: "Kabupaten Berau"
-//     },
-//     {
-//         id: 2,
-//         title: "Danau Labuan Cermin",
-//         subtitle: "Keajaiban Alam Dua Rasa",
-//         description: "Saksikan fenomena unik danau dengan air tawar di permukaan dan air asin di dasarnya yang sebening kaca.",
-//         image: "https://images.unsplash.com/photo-1518331822268-6d24de3bc5dd?q=80&w=1920&auto=format&fit=crop",
-//         location: "Biduk-Biduk"
-//     },
-//     {
-//         id: 3,
-//         title: "Desa Budaya Pampang",
-//         subtitle: "Warisan Leluhur Dayak Kenyah",
-//         description: "Rasakan kearifan lokal, saksikan tarian tradisional, dan selami kekayaan budaya Suku Dayak.",
-//         image: "https://images.unsplash.com/photo-1589133464871-2edb95fbb06e?q=80&w=1920&auto=format&fit=crop",
-//         location: "Samarinda"
-//     }
-// ];
+const defaultSlides: CarouselItem[] = [
+    {
+        id: 1,
+        title: "Pesona Kepulauan Derawan",
+        subtitle: "Surga Tersembunyi di Timur Borneo",
+        description: "Nikmati keindahan koral, berenang bersama penyu, dan menyelam di laut jernih. Destinasi impian bagi setiap pecinta laut.",
+        image: "https://images.unsplash.com/photo-1544480843-0e42a96b7978?q=80&w=1920&auto=format&fit=crop",
+        location: "Kabupaten Berau"
+    },
+    {
+        id: 2,
+        title: "Danau Labuan Cermin",
+        subtitle: "Keajaiban Alam Dua Rasa",
+        description: "Saksikan fenomena unik danau dengan air tawar di permukaan dan air asin di dasarnya yang sebening kaca.",
+        image: "https://images.unsplash.com/photo-1518331822268-6d24de3bc5dd?q=80&w=1920&auto=format&fit=crop",
+        location: "Biduk-Biduk"
+    },
+    {
+        id: 3,
+        title: "Desa Budaya Pampang",
+        subtitle: "Warisan Leluhur Dayak Kenyah",
+        description: "Rasakan kearifan lokal, saksikan tarian tradisional, dan selami kekayaan budaya Suku Dayak.",
+        image: "https://images.unsplash.com/photo-1589133464871-2edb95fbb06e?q=80&w=1920&auto=format&fit=crop",
+        location: "Samarinda"
+    }
+];
 
 export default function CarouselHero({ items }: { items: any }) {
     const getArrayItems = () => {
@@ -83,7 +83,7 @@ export default function CarouselHero({ items }: { items: any }) {
                 loop={true}
                 className="w-full h-full"
             >
-                {displayItems.map((slide) => (
+                {displayItems.map((slide: any) => (
                     <SwiperSlide key={slide.id}>
                         {({ isActive }) => (
                             <div className="relative w-full h-full">

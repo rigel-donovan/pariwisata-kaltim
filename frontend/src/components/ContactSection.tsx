@@ -19,8 +19,10 @@ export default function ContactSection() {
         setIsSubmitting(true);
         setStatus("idle");
 
+const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
         try {
-            const res = await fetch("http://127.0.0.1:8000/api/contact-messages", {
+            const res = await fetch(`${API}/api/contact-messages`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
